@@ -1,7 +1,7 @@
 body {
     margin: auto 0;
     font-family: Arial;
-    background-color: black !important;
+/*    background-color: black !important;*/
 }
 
 .container {
@@ -116,7 +116,7 @@ a {
     margin-top: 100px;
 }
 
-/* MENU */
+/* MENU PAGE*/
 
 
 
@@ -135,14 +135,13 @@ a {
     background-size: auto, cover;
     padding: 3em 0;
     margin-top: 23px;
-    
-    }
+}
 
 .menu-cover H1 {
     color: #fbd914;
     font-family: montserrat,sans-serif;
     font-weight: bold;
-    font-size: 5vw;
+    font-size: 12vw;
     margin-top: 0px;
 }
 
@@ -213,6 +212,11 @@ a {
     .menu-group {
         grid-template-columns: repeat(2, 1fr);
     }
+    .menu-cover H1 {
+    font-size: 6vw;
+    margin-top: -30px;
+    }
+    
 }
 
 
