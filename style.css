@@ -1,6 +1,14 @@
 body {
     margin: auto 0;
     font-family: Arial;
+    background-color: black !important;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 3em auto;
+    padding: 1.5em;
+    background-color: white;
 }
 
 .zone {
@@ -106,6 +114,105 @@ a {
     font-weight: bold;
     font-size: 5vw;
     margin-top: 100px;
+}
+
+/* MENU */
+
+
+
+.menu {
+    font-family: sans-serif;
+    font-size: 14px !important;
+}
+.menu-cover {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 30vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(19,19,19,0.1474964985994398) 75%), url("./img/menu-big.jpg");
+    background-position: top left, center center;
+    background-size: auto, cover;
+    padding: 3em 0;
+    margin-top: 23px;
+    
+    }
+
+.menu-cover H1 {
+    color: #fbd914;
+    font-family: montserrat,sans-serif;
+    font-weight: bold;
+    font-size: 5vw;
+    margin-top: 0px;
+}
+
+.menu-group-heading {
+    margin: 0;
+    padding-bottom: 1em;
+    border-bottom: 2px solid #ccc;
+}
+
+.menu-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    padding: 1.5em 0;
+}
+
+.menu-item {
+    display: flex;
+}
+
+.menu-item-heading {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    font-size: 16px;
+}
+
+.menu-item-name {
+    margin-right: 1.5em;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.menu-item-separator {
+    border-bottom-style: dotted;
+    border-bottom-width: 2px;
+    flex-grow: 1;
+    margin-right: 10px;
+    height: 24px;
+    border-bottom-color: #54595f;
+}
+
+.menu-item-text {
+    flex-grow: 1;
+}
+
+.menu-item-price {
+    font-size: 14px;
+    color: #0058ac;
+    background-color: #fbd914;
+    line-height: 2;
+    box-shadow: 5px 0 0px 0px #fbd914, -5px 0 0px 0px #fbd914;
+}
+
+.menu-item-description {
+    line-height: 1.6;
+    color: #0058ac;
+}
+
+
+@media screen and (min-width: 768px) {
+    .menu {
+        font-size: 16px !important;
+    }
+
+    .menu-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
