@@ -1,5 +1,11 @@
 ---
 import restaurant from '../data/restaurant.json';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang }: Props = Astro.props;
 const year = new Date().getFullYear();
 ---
 
@@ -7,12 +13,22 @@ const year = new Date().getFullYear();
   <div class="wrap">
     <div>
       <h4>PizzaXXL</h4>
-      <p>&copy; {year} PizzaXXL. Swedish pizza in Torrevieja, Spain.</p>
+      <p>&copy; {year} PizzaXXL. {t(lang, 'footer.tagline')}</p>
+      {restaurant.socials.length > 0 && (
+        <div class="social-links">
+          {restaurant.socials.map((social: { name: string; url: string }) => (
+            <a href={social.url} target="_blank" rel="noopener noreferrer">{social.name}</a>
+          ))}
+        </div>
+      )}
     </div>
     {restaurant.locations.map((location) => (
       <div>
         <h4>{location.name}</h4>
         <p>{location.address}<br />{location.phone}</p>
+        {location.facebook && (
+          <p><a href={location.facebook} target="_blank" rel="noopener noreferrer">Facebook</a></p>
+        )}
       </div>
     ))}
   </div>

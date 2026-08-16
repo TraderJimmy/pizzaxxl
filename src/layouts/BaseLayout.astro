@@ -1,34 +1,63 @@
 ---
+import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { locales, localePath, type Lang } from '../i18n/ui';
+import ogSourceImage from '../images/popular-pizza.jpg';
 
 interface Props {
+  lang: Lang;
   title: string;
   description?: string;
   active?: 'home' | 'menu' | 'location' | 'about';
+  page?: '' | 'menu/' | 'location-hours/' | 'about/';
 }
 const {
+  lang,
   title,
   description = 'PizzaXXL – Authentic Swedish pizza in Torrevieja, Spain. Two locations, dine in, takeaway or delivery.',
   active,
+  page = '',
 }: Props = Astro.props;
+
+const site = Astro.site ?? new URL('https://pizzaxxl.es');
+const canonicalUrl = new URL(`${localePath[lang]}${page}`, site).toString();
+const ogImage = await getImage({ src: ogSourceImage, width: 1200, height: 630, format: 'jpg', quality: 75 });
+const ogImageUrl = new URL(ogImage.src, site).toString();
+const fullTitle = `${title} | PizzaXXL`;
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/images/logo.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | PizzaXXL</title>
+    <link rel="canonical" href={canonicalUrl} />
+    {locales.map((l) => (
+      <link rel="alternate" hreflang={l} href={new URL(`${localePath[l]}${page}`, site).toString()} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL(`/${page}`, site).toString()} />
+    <title>{fullTitle}</title>
+
+    <meta property="og:type" content="restaurant.restaurant" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={lang} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
   </head>
   <body>
-    <Header active={active} />
+    <Header lang={lang} active={active} page={page} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>

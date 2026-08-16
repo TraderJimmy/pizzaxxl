@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LocationCard from '../components/LocationCard.astro';
+import RestaurantSchema from '../components/RestaurantSchema.astro';
+import restaurant from '../data/restaurant.json';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang }: Props = Astro.props;
+---
+
+<BaseLayout lang={lang} title={t(lang, 'nav.location')} active="location" page="location-hours/">
+  <RestaurantSchema />
+  <section class="section wrap">
+    <div class="section-title">
+      <h2>{t(lang, 'nav.location')}</h2>
+      <p>{t(lang, 'locations.subtitle')}</p>
+    </div>
+    <div class="locations-grid">
+      {restaurant.locations.map((location) => (
+        <LocationCard lang={lang} {...location} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

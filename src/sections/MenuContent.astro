@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import restaurant from '../data/restaurant.json';
+import { t, type Lang } from '../i18n/ui';
+import { formatPrice } from '../i18n/format';
+
+interface Props {
+  lang: Lang;
+}
+const { lang }: Props = Astro.props;
+---
+
+<BaseLayout lang={lang} title={t(lang, 'menuPage.title')} active="menu" page="menu/">
+  <section class="section wrap">
+    <div class="section-title">
+      <h2>{t(lang, 'menuPage.title')}</h2>
+    </div>
+
+    {restaurant.menu.map((category) => (
+      <div class="menu-category">
+        <h2>{category.categoryName[lang]}</h2>
+        {category.note && <p class="menu-category-note">{category.note[lang]}</p>}
+        <div class="menu-items">
+          {category.items.map((item) => (
+            <div class="menu-item">
+              <div>
+                <div class="menu-item-name">
+                  {item.number && <span class="menu-item-number">{item.number}.</span>}
+                  {item.name[lang].toUpperCase()}
+                </div>
+                {item.description[lang] && <div class="menu-item-desc">{item.description[lang]}</div>}
+              </div>
+              <div class="menu-item-price">{formatPrice(item, lang)}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>

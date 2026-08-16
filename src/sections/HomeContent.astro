@@ -1,0 +1,83 @@
+---
+import { getImage, Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LocationCard from '../components/LocationCard.astro';
+import RestaurantSchema from '../components/RestaurantSchema.astro';
+import restaurant from '../data/restaurant.json';
+import { t, localePath, type Lang } from '../i18n/ui';
+import { formatPrice } from '../i18n/format';
+import heroImage from '../images/hero-pizza.jpg';
+import popularImage from '../images/popular-pizza.jpg';
+
+interface Props {
+  lang: Lang;
+}
+const { lang }: Props = Astro.props;
+
+const optimizedHero = await getImage({ src: heroImage, width: 1600, format: 'jpg', quality: 75 });
+
+const popular = restaurant.popularItems
+  .map((ref) => {
+    const cat = restaurant.menu.find((c) => c.category === ref.category);
+    return cat?.items.find((item) => item.number === ref.number);
+  })
+  .filter(Boolean);
+
+const base = localePath[lang];
+---
+
+<BaseLayout lang={lang} title={t(lang, 'nav.home')} active="home" page="">
+  <RestaurantSchema />
+  <section class="hero" style={`background-image: url('${optimizedHero.src}');`}>
+    <div class="wrap hero-inner">
+      <span class="hero-eyebrow">{t(lang, 'hero.eyebrow')}</span>
+      <h1>{restaurant.tagline[lang]}</h1>
+      <p>{restaurant.intro[lang]}</p>
+      <div class="hero-actions">
+        <a class="btn" href={`${base}menu/`}>{t(lang, 'hero.seeMenu')}</a>
+        <a class="btn btn-outline" href={`${base}location-hours/`}>{t(lang, 'hero.findUs')}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap intro-section">
+    <h2>{restaurant.name} – {restaurant.tagline[lang]} 🍕</h2>
+    <p>{restaurant.extraIntro[lang]}</p>
+  </section>
+
+  <section class="section wrap">
+    <div class="popular-split">
+      <div>
+        <div class="section-title popular-title">
+          <h2>{t(lang, 'popular.title')}</h2>
+          <p>{t(lang, 'popular.subtitle')}</p>
+        </div>
+        <div class="popular-grid">
+          {popular.map((item) => item && (
+            <div class="popular-card">
+              <span class="item-number">{item.number}. {item.name[lang].toUpperCase()}</span>
+              <p>{item.description[lang]}</p>
+              <div class="price">{formatPrice(item, lang)}</div>
+            </div>
+          ))}
+        </div>
+        <a class="btn" href={`${base}menu/`}>{t(lang, 'popular.fullMenu')}</a>
+      </div>
+      <div class="popular-image">
+        <Image src={popularImage} alt="Freshly baked pepperoni pizza from PizzaXXL" width={700} quality={75} loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-title">
+      <h2>{t(lang, 'locations.title')}</h2>
+      <p>{t(lang, 'locations.subtitle')}</p>
+    </div>
+    <div class="locations-grid">
+      {restaurant.locations.map((location) => (
+        <LocationCard lang={lang} {...location} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

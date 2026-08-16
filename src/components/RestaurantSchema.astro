@@ -1,0 +1,48 @@
+---
+import restaurant from '../data/restaurant.json';
+
+const site = Astro.site ?? new URL('https://pizzaxxl.es');
+const dayMap: Record<string, string> = {
+  monday: 'Monday',
+  tuesday: 'Tuesday',
+  wednesday: 'Wednesday',
+  thursday: 'Thursday',
+  friday: 'Friday',
+  saturday: 'Saturday',
+  sunday: 'Sunday',
+};
+
+const schemas = restaurant.locations.map((location) => {
+  const openingHoursSpecification = Object.entries(location.hours)
+    .filter(([, range]) => range !== 'closed')
+    .map(([day, range]) => {
+      const [opens, closes] = (range as string).split('-');
+      return {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: `https://schema.org/${dayMap[day]}`,
+        opens,
+        closes,
+      };
+    });
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Restaurant',
+    name: `PizzaXXL - ${location.name}`,
+    servesCuisine: ['Pizza', 'Swedish', 'Mediterranean'],
+    priceRange: '€€',
+    telephone: location.phone,
+    image: new URL('/images/hero-pizza.jpg', site).toString(),
+    url: site.toString(),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: location.address,
+      addressCountry: 'ES',
+    },
+    openingHoursSpecification,
+    menu: new URL('/menu/', site).toString(),
+  };
+});
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemas)} />

@@ -1,15 +1,34 @@
 {
   "name": "PizzaXXL",
-  "tagline": "Swedish Pizza in Torrevieja",
-  "intro": "Welcome to an authentic Swedish pizzeria in Torrevieja, Spain. Made with the best ingredients brought from Sweden, to guarantee the authentic flavor of Swedish pizza.",
-  "about": "Welcome to PizzaXXL, where Swedish pizza meets the sunny coast of Spain! Located in beautiful Torrevieja, we have two restaurants dedicated to serving delicious, high-quality pizzas with a Swedish twist.\n\nOur passion for great food is what drives us. We use fresh ingredients, handmade dough, and a perfect balance of flavors to bring you pizzas that are both satisfying and unique. Whether you're dining in, grabbing takeaway, or just craving a slice of home, PizzaXXL is the place to be.\n\nJoin us for a taste of Sweden right here in Spain - because good pizza should always be XXL!",
+  "socials": [
+    { "name": "Instagram", "url": "https://www.instagram.com/xxlpizza/" }
+  ],
+  "tagline": { "en": "Swedish Pizza in Torrevieja", "sv": "Svensk Pizza i Torrevieja", "es": "Pizza Sueca en Torrevieja" },
+  "intro": {
+    "en": "Welcome to an authentic Swedish pizzeria in Torrevieja, Spain. Made with the best ingredients brought from Sweden, to guarantee the authentic flavor of Swedish pizza.",
+    "sv": "Välkommen till en autentisk svensk pizzeria i Torrevieja, Spanien. Tillagad med de bästa ingredienserna från Sverige för att garantera den äkta smaken av svensk pizza.",
+    "es": "Bienvenido a una auténtica pizzería sueca en Torrevieja, España. Elaborada con los mejores ingredientes traídos de Suecia, para garantizar el sabor auténtico de la pizza sueca."
+  },
+  "extraIntro": {
+    "en": "Bringing the best of Swedish pizza to the Spanish coast! Fresh ingredients, bold flavors, and XXL-sized satisfaction. Visit one of our two locations and enjoy a slice of Sweden under the Spanish sun.",
+    "sv": "Vi tar med det bästa av svensk pizza till spanska kusten! Färska råvaror, djärva smaker och XXL-stor mättnad. Besök en av våra två restauranger och njut av en bit Sverige under den spanska solen.",
+    "es": "¡Traemos lo mejor de la pizza sueca a la costa española! Ingredientes frescos, sabores intensos y satisfacción de tamaño XXL. Visita uno de nuestros dos locales y disfruta de un trozo de Suecia bajo el sol español."
+  },
+  "about": {
+    "en": "Welcome to PizzaXXL, where Swedish pizza meets the sunny coast of Spain! Located in beautiful Torrevieja, we have two restaurants dedicated to serving delicious, high-quality pizzas with a Swedish twist.\n\nOur passion for great food is what drives us. We use fresh ingredients, handmade dough, and a perfect balance of flavors to bring you pizzas that are both satisfying and unique. Whether you're dining in, grabbing takeaway, or just craving a slice of home, PizzaXXL is the place to be.\n\nJoin us for a taste of Sweden right here in Spain - because good pizza should always be XXL!",
+    "sv": "Välkommen till PizzaXXL, där svensk pizza möter Spaniens soliga kust! I vackra Torrevieja driver vi två restauranger som serverar goda pizzor av hög kvalitet med en svensk twist.\n\nVår passion för god mat är det som driver oss. Vi använder färska råvaror, handknådad deg och en perfekt balans av smaker för att bjuda på pizzor som är både mättande och unika. Oavsett om du äter här, tar med take away eller bara längtar efter en bit hemifrån, är PizzaXXL stället att vara på.\n\nVälkommen att smaka en bit Sverige mitt i Spanien - för god pizza ska alltid vara XXL!",
+    "es": "¡Bienvenido a PizzaXXL, donde la pizza sueca se encuentra con la soleada costa de España! Ubicados en la hermosa Torrevieja, tenemos dos restaurantes dedicados a servir deliciosas pizzas de alta calidad con un toque sueco.\n\nNuestra pasión por la buena comida es lo que nos impulsa. Usamos ingredientes frescos, masa artesanal y un equilibrio perfecto de sabores para ofrecerte pizzas que son a la vez satisfactorias y únicas. Ya sea que comas con nosotros, pidas para llevar, o simplemente tengas ganas de un sabor de hogar, PizzaXXL es el lugar ideal.\n\n¡Únete a nosotros para probar un pedazo de Suecia aquí en España, porque una buena pizza siempre debe ser XXL!"
+  },
 
   "locations": [
     {
       "name": "Cabo Roig",
       "address": "Calle Cieolo 8, the strip, Cabo Roig, Torrevieja, Spain",
       "phone": "744 62 43 05",
-      "delivery": "Uber Eats",
+      "facebook": "https://www.facebook.com/XXLPizza",
+      "delivery": [
+        { "name": "Uber Eats", "url": "https://www.ubereats.com/es/store/pizza-xxl-cabo-roig/mVoMQvGTV9S01nVvJG5l-g?diningMode=DELIVERY" }
+      ],
       "hours": {
         "monday": "17:00-23:00",
         "tuesday": "17:00-23:00",
@@ -24,9 +43,15 @@
       "name": "La Mata",
       "address": "Avenida de suiza 44, La Mata, Spain",
       "phone": "604 41 24 59",
-      "delivery": "Glovo or Uber Eats",
+      "facebook": "https://www.facebook.com/profile.php?id=61574603855852",
+      "delivery": [
+        { "name": "Uber Eats", "url": "https://www.ubereats.com/es/store/pizza-xxl-la-mata/PjArtCKBXoi_vnKEyWTigw" }
+      ],
+      "closures": [
+        { "from": "2026-09-01", "to": "2026-09-03" }
+      ],
       "hours": {
-        "monday": "18:00-23:00",
+        "monday": "closed",
         "tuesday": "18:00-23:00",
         "wednesday": "18:00-23:00",
         "thursday": "18:00-23:00",
@@ -39,65 +64,152 @@
 
   "menu": [
     {
-      "category": "Pizza",
+      "category": "pizza",
+      "categoryName": { "en": "Pizza", "sv": "Pizza", "es": "Pizza" },
       "items": [
-        { "number": 1, "name": "Margarita", "description": "Cheese", "price": "Normal 11€ | XXL 16€" },
-        { "number": 2, "name": "Vesuvio", "description": "Ham", "price": "Normal 12€ | XXL 19€" },
-        { "number": 3, "name": "Hawaii", "description": "Ham & Pineapple", "price": "Normal 13€ | XXL 20€" },
-        { "number": 4, "name": "Capricciosa", "description": "Ham & Mushrooms", "price": "Normal 13€ | XXL 20€" },
-        { "number": 5, "name": "Funghi", "description": "Mushrooms", "price": "Normal 12€ | XXL 19€" },
-        { "number": 6, "name": "Orientale", "description": "Ham, minced meat & onion", "price": "Normal 14€ | XXL 20€" },
-        { "number": 7, "name": "Mexicana", "description": "Minced meat, peppers, onion, garlic & cayenne pepper", "price": "Normal 14€ | XXL 20€" },
-        { "number": 8, "name": "Primavera", "description": "Ham, prawns & pineapple", "price": "Normal 15€ | XXL 21€" },
-        { "number": 9, "name": "Vegetariana", "description": "Mushrooms, peppers, onion, olives & artichoke", "price": "Normal 13€ | XXL 19€" },
-        { "number": 10, "name": "Venezia", "description": "Ham & tuna", "price": "Normal 13€ | XXL 20€" },
-        { "number": 11, "name": "Peperoni", "description": "Peperoni, mushrooms & onion", "price": "Normal 13€ | XXL 20€" },
-        { "number": 12, "name": "Calzone", "description": "Ham", "price": "13€" },
-        { "number": 13, "name": "John Blund", "description": "Onion, mushrooms, bacon, egg & ham", "price": "Normal 16€ | XXL 22€" },
-        { "number": 14, "name": "Africana", "description": "Pineapple, chicken, curry, banana", "price": "Normal 15€ | XXL 22€" },
-        { "number": 15, "name": "Monaco", "description": "Ham, prawns, bacon & bearnaise", "price": "Normal 16€ | XXL 23€" },
-        { "number": 16, "name": "Jamaica", "description": "Ham, prawns & mushrooms", "price": "Normal 15€ | XXL 21€" },
-        { "number": 17, "name": "Calzone Special", "description": "Ham & prawns", "price": "15€" },
-        { "number": 18, "name": "Marinara", "description": "Prawns & mussels", "price": "Normal 15€ | XXL 21€" },
-        { "number": 19, "name": "Quattro Stagione", "description": "Ham, prawns, mushrooms, artichoke & mussels", "price": "Normal 18€ | XXL 23€" },
-        { "number": 20, "name": "Gyros Pizza", "description": "Gyros meat & sauce", "price": "Normal 17€ | XXL 22€" },
-        { "number": 21, "name": "Gyros Special", "description": "Gyros meat, salad, tomatoes & cucumber", "price": "Normal 18€ | XXL 25€" },
-        { "number": 22, "name": "Frutti di Mare", "description": "Prawns, pineapple, garlic, piri piri, curry & aioli", "price": "Normal 16€ | XXL 23€" },
-        { "number": 23, "name": "Fillet of Beef", "description": "Beef, onion, garlic, bearnaise & tomatoes", "price": "Normal 16€ | XXL 23€" },
-        { "number": 24, "name": "Kebab Pizza", "description": "Kebab meat & sauce", "price": "Normal 17€ | XXL 22€" },
-        { "number": 25, "name": "Special Kebab Pizza", "description": "Kebab meat, lettuce, tomatoes, onion, chilli pepper & sauce", "price": "Normal 18€ | XXL 25€" }
+        { "number": 1, "name": { "en": "Margarita", "sv": "Margarita", "es": "Margarita" }, "description": { "en": "Cheese", "sv": "Ost", "es": "Queso" }, "priceNormal": "11€", "priceXXL": "16€" },
+        { "number": 2, "name": { "en": "Vesuvio", "sv": "Vesuvio", "es": "Vesuvio" }, "description": { "en": "Ham", "sv": "Skinka", "es": "Jamón" }, "priceNormal": "12€", "priceXXL": "19€" },
+        { "number": 3, "name": { "en": "Hawaii", "sv": "Hawaii", "es": "Hawaii" }, "description": { "en": "Ham & Pineapple", "sv": "Skinka, Ananas", "es": "Jamón y Piña" }, "priceNormal": "13€", "priceXXL": "20€" },
+        { "number": 4, "name": { "en": "Capricciosa", "sv": "Capricciosa", "es": "Capricciosa" }, "description": { "en": "Ham & Mushrooms", "sv": "Skinka, Champinjoner", "es": "Jamón y Champiñones" }, "priceNormal": "13€", "priceXXL": "20€" },
+        { "number": 5, "name": { "en": "Funghi", "sv": "Funghi", "es": "Funghi" }, "description": { "en": "Mushrooms", "sv": "Champinjoner", "es": "Champiñones" }, "priceNormal": "12€", "priceXXL": "19€" },
+        { "number": 6, "name": { "en": "Orientale", "sv": "Orientale", "es": "Orientale" }, "description": { "en": "Ham, minced meat & onion", "sv": "Skinka, köttfärs, lök", "es": "Jamón, carne picada y cebolla" }, "priceNormal": "14€", "priceXXL": "20€" },
+        { "number": 7, "name": { "en": "Mexicana", "sv": "Mexicana", "es": "Mexicana" }, "description": { "en": "Minced meat, peppers, onion, garlic & cayenne pepper", "sv": "Köttfärs, paprika, lök, vitlök, cayennepeppar", "es": "Carne picada, pimientos, cebolla, ajo y pimienta de cayena" }, "priceNormal": "14€", "priceXXL": "20€" },
+        { "number": 8, "name": { "en": "Primavera", "sv": "Primavera", "es": "Primavera" }, "description": { "en": "Ham, prawns & pineapple", "sv": "Skinka, räkor, ananas", "es": "Jamón, gambas y piña" }, "priceNormal": "15€", "priceXXL": "21€" },
+        { "number": 9, "name": { "en": "Vegetariana", "sv": "Vegetariana", "es": "Vegetariana" }, "description": { "en": "Mushrooms, peppers, onion, olives & artichoke", "sv": "Champinjoner, paprika, lök, oliver, kronärtskocka", "es": "Champiñones, pimientos, cebolla, aceitunas y alcachofa" }, "priceNormal": "13€", "priceXXL": "19€" },
+        { "number": 10, "name": { "en": "Venezia", "sv": "Venezia", "es": "Venezia" }, "description": { "en": "Ham & tuna", "sv": "Skinka, tonfisk", "es": "Jamón y atún" }, "priceNormal": "13€", "priceXXL": "20€" },
+        { "number": 11, "name": { "en": "Peperoni", "sv": "Peperoni", "es": "Peperoni" }, "description": { "en": "Peperoni, mushrooms & onion", "sv": "Peperoni, champinjoner, lök", "es": "Pepperoni, champiñones y cebolla" }, "priceNormal": "13€", "priceXXL": "20€" },
+        { "number": 12, "name": { "en": "Calzone", "sv": "Calzone", "es": "Calzone" }, "description": { "en": "Ham", "sv": "Skinka", "es": "Jamón" }, "price": "13€" },
+        { "number": 13, "name": { "en": "John Blund", "sv": "John Blund", "es": "John Blund" }, "description": { "en": "Onion, mushrooms, bacon, egg & ham", "sv": "Champinjoner, bacon, ägg, skinka, lök", "es": "Cebolla, champiñones, bacon, huevo y jamón" }, "priceNormal": "16€", "priceXXL": "22€" },
+        { "number": 14, "name": { "en": "Africana", "sv": "Africana", "es": "Africana" }, "description": { "en": "Pineapple, chicken, curry, banana", "sv": "Ananas, kyckling, curry, banan", "es": "Piña, pollo, curry y plátano" }, "priceNormal": "15€", "priceXXL": "22€" },
+        { "number": 15, "name": { "en": "Monaco", "sv": "Monaco", "es": "Monaco" }, "description": { "en": "Ham, prawns, bacon & bearnaise", "sv": "Skinka, räkor, bacon, beasås", "es": "Jamón, gambas, bacon y salsa bearnesa" }, "priceNormal": "16€", "priceXXL": "23€" },
+        { "number": 16, "name": { "en": "Jamaica", "sv": "Jamaica", "es": "Jamaica" }, "description": { "en": "Ham, prawns & mushrooms", "sv": "Skinka, räkor, champinjoner", "es": "Jamón, gambas y champiñones" }, "priceNormal": "15€", "priceXXL": "21€" },
+        { "number": 17, "name": { "en": "Calzone Special", "sv": "Calzone Special", "es": "Calzone Special" }, "description": { "en": "Ham & prawns", "sv": "Skinka, räkor", "es": "Jamón y gambas" }, "price": "15€" },
+        { "number": 18, "name": { "en": "Marinara", "sv": "Marinara", "es": "Marinara" }, "description": { "en": "Prawns & mussels", "sv": "Räkor, musslor", "es": "Gambas y mejillones" }, "priceNormal": "15€", "priceXXL": "21€" },
+        { "number": 19, "name": { "en": "Quattro Stagione", "sv": "Quattro Stagione", "es": "Quattro Stagione" }, "description": { "en": "Ham, prawns, mushrooms, artichoke & mussels", "sv": "Skinka, räkor, champinjoner, kronärtskocka, musslor", "es": "Jamón, gambas, champiñones, alcachofa y mejillones" }, "priceNormal": "18€", "priceXXL": "23€" },
+        { "number": 20, "name": { "en": "Gyros Pizza", "sv": "Gyrospizza", "es": "Pizza Gyros" }, "description": { "en": "Gyros meat & sauce", "sv": "Gyrosskött, sås", "es": "Carne de gyros y salsa" }, "priceNormal": "17€", "priceXXL": "22€" },
+        { "number": 21, "name": { "en": "Gyros Special", "sv": "Gyros Special", "es": "Gyros Special" }, "description": { "en": "Gyros meat, salad, tomatoes & cucumber", "sv": "Gyrosskött, sallad, tomater, gurka, lök, feferoni, sås", "es": "Carne de gyros, lechuga, tomate, pepino, cebolla, guindilla y salsa" }, "priceNormal": "18€", "priceXXL": "25€" },
+        { "number": 22, "name": { "en": "Frutti di Mare", "sv": "Frutti di Mare", "es": "Frutti di Mare" }, "description": { "en": "Prawns, pineapple, garlic, piri piri, curry & aioli", "sv": "Tigerräkor, ananas, vitlök, piri piri, curry, vitlökssås", "es": "Langostinos, piña, ajo, piri piri, curry y alioli" }, "priceNormal": "16€", "priceXXL": "23€" },
+        { "number": 23, "name": { "en": "Fillet of Beef", "sv": "Oxfile", "es": "Solomillo" }, "description": { "en": "Beef, onion, garlic, bearnaise & tomatoes", "sv": "Oxfile, lök, vitlök, beasås, färska tomater", "es": "Ternera, cebolla, ajo, salsa bearnesa y tomate fresco" }, "priceNormal": "16€", "priceXXL": "23€" },
+        { "number": 24, "name": { "en": "Kebab Pizza", "sv": "Kebabpizza", "es": "Pizza Kebab" }, "description": { "en": "Kebab meat & sauce", "sv": "Kebabkött, sås", "es": "Carne de kebab y salsa" }, "priceNormal": "17€", "priceXXL": "22€" },
+        { "number": 25, "name": { "en": "Special Kebab Pizza", "sv": "Special Kebabpizza", "es": "Pizza Kebab Special" }, "description": { "en": "Kebab meat, lettuce, tomatoes, onion, chilli pepper & sauce", "sv": "Kebabkött, sallad, tomat, lök, feferoni, sås", "es": "Carne de kebab, lechuga, tomate, cebolla, guindilla y salsa" }, "priceNormal": "18€", "priceXXL": "25€" },
+        { "number": 26, "name": { "en": "Viking Pizza", "sv": "Viking Pizza", "es": "Pizza Vikinga" }, "description": { "en": "Gyros/kebab meat & french fries", "sv": "Gyros/kebab och pommes frites", "es": "Carne de gyros/kebab y patatas fritas" }, "priceNormal": "17€", "priceXXL": "25€" },
+        { "number": 27, "name": { "en": "Four Cheese", "sv": "Fyra Ostar", "es": "Cuatro Quesos" }, "description": { "en": "", "sv": "", "es": "" }, "priceNormal": "15€", "priceXXL": "21€" },
+        { "number": 28, "name": { "en": "Carbonara", "sv": "Carbonara", "es": "Carbonara" }, "description": { "en": "Cream, bacon, onion & mushrooms", "sv": "Grädde, bacon, lök, champinjoner", "es": "Nata, bacon, cebolla y champiñones" }, "priceNormal": "15€", "priceXXL": "21€" },
+        { "number": 29, "name": { "en": "BBQ", "sv": "BBQ", "es": "BBQ" }, "description": { "en": "BBQ sauce, ham, chicken, bacon & onion", "sv": "Barbecuesås, skinka, kyckling, bacon, lök", "es": "Salsa barbacoa, jamón, pollo, bacon y cebolla" }, "priceNormal": "15€", "priceXXL": "21€" }
       ]
     },
     {
-      "category": "Gyros",
+      "category": "gyros-kebab",
+      "categoryName": { "en": "Gyros & Kebab", "sv": "Gyros/Kebab", "es": "Gyros y Kebab" },
+      "note": {
+        "en": "Choice of sauce: mild, hot or garlic",
+        "sv": "Valfri sås: mild sås, starksås eller vitlökssås",
+        "es": "Elige salsa: suave, picante o de ajo"
+      },
       "items": [
-        { "number": 30, "name": "Gyros in a Roll", "description": "Gyros meat & vegetables", "price": "15€" },
-        { "number": 31, "name": "Gyros on a Plate", "description": "Gyros meat, vegetables & french fries", "price": "15€" },
-        { "number": 32, "name": "Falafel Plate", "description": "Falafel, vegetables, french fries", "price": "12€" },
-        { "number": 33, "name": "Falafel Roll", "description": "Falafel, vegetables", "price": "12€" },
-        { "number": 34, "name": "Kids Menu", "description": "Nuggets & fries", "price": "7€" },
-        { "number": 35, "name": "Kebab on a Roll", "description": "Kebab meat & vegetables", "price": "15€" },
-        { "number": 36, "name": "Kebab on a Plate", "description": "Kebab meat, vegetables & french fries", "price": "15€" }
+        { "number": 30, "name": { "en": "Gyros in a Roll", "sv": "Gyrosrulle", "es": "Gyros en Pan de Pita" }, "description": { "en": "Gyros meat & vegetables", "sv": "Gyrosskött, grönsaker", "es": "Carne de gyros y verduras" }, "price": "15€" },
+        { "number": 31, "name": { "en": "Gyros on a Plate", "sv": "Gyrostallrik", "es": "Gyros en Plato" }, "description": { "en": "Gyros meat, vegetables & french fries", "sv": "Gyrosskött, grönsaker, pommes", "es": "Carne de gyros, verduras y patatas fritas" }, "price": "15€" },
+        { "number": 32, "name": { "en": "Falafel Plate", "sv": "Falafeltallrik", "es": "Plato de Falafel" }, "description": { "en": "Falafel, vegetables, french fries", "sv": "Falafel, grönsaker, pommes", "es": "Falafel, verduras y patatas fritas" }, "price": "12€" },
+        { "number": 33, "name": { "en": "Falafel Roll", "sv": "Falafelrulle", "es": "Falafel en Pan de Pita" }, "description": { "en": "Falafel, vegetables", "sv": "Falafel, grönsaker", "es": "Falafel y verduras" }, "price": "12€" },
+        { "number": 34, "name": { "en": "Kids Menu", "sv": "Barnmeny", "es": "Menú Infantil" }, "description": { "en": "Nuggets & fries", "sv": "Nuggets, pommes", "es": "Nuggets y patatas fritas" }, "price": "7€" },
+        { "number": 35, "name": { "en": "Kebab on a Roll", "sv": "Kebabrulle", "es": "Kebab en Pan de Pita" }, "description": { "en": "Kebab meat & vegetables", "sv": "Kebabkött, grönsaker", "es": "Carne de kebab y verduras" }, "price": "15€" },
+        { "number": 36, "name": { "en": "Kebab on a Plate", "sv": "Kebabtallrik", "es": "Kebab en Plato" }, "description": { "en": "Kebab meat, vegetables & french fries", "sv": "Kebabkött, grönsaker, pommes", "es": "Carne de kebab, verduras y patatas fritas" }, "price": "15€" },
+        { "number": 37, "name": { "en": "Viking Roll", "sv": "Vikingrulle", "es": "Rollo Vikingo" }, "description": { "en": "Kebab/gyros meat, vegetables & french fries", "sv": "Kebab/gyros, grönsaker och pommes frites", "es": "Carne de kebab/gyros, verduras y patatas fritas" }, "price": "17€" }
       ]
     },
     {
-      "category": "Salad",
+      "category": "burgers",
+      "categoryName": { "en": "Burgers", "sv": "Hamburgare", "es": "Hamburguesas" },
       "items": [
-        { "number": 39, "name": "Prawn Salad", "description": "Prawns & vegetables", "price": "15€" },
-        { "number": 40, "name": "Tuna Salad", "description": "Tuna & vegetables", "price": "14€" },
-        { "number": 41, "name": "Kebab Salad", "description": "Gyros meat & vegetables", "price": "14€" },
-        { "number": 42, "name": "Chicken Salad", "description": "Chicken & vegetables", "price": "14€" }
+        { "number": 38, "name": { "en": "Burger", "sv": "Hamburgare", "es": "Hamburguesa" }, "description": { "en": "150g burger with tomato, lettuce, onion & pickles, served with french fries", "sv": "150 gr. med tomat, sallad, lök och gurka, med pommes frites", "es": "150g con tomate, lechuga, cebolla y pepinillos, servida con patatas fritas" }, "price": "13€" },
+        { "number": null, "name": { "en": "Extra Bacon", "sv": "Extra Bacon", "es": "Bacon Extra" }, "description": { "en": "", "sv": "", "es": "" }, "price": "+1€" },
+        { "number": null, "name": { "en": "Extra Cheese", "sv": "Extra Ost", "es": "Queso Extra" }, "description": { "en": "", "sv": "", "es": "" }, "price": "+1€" }
       ]
     },
     {
-      "category": "Extra",
+      "category": "salad",
+      "categoryName": { "en": "Salad", "sv": "Sallad", "es": "Ensaladas" },
+      "note": {
+        "en": "Dressing included",
+        "sv": "Sås ingår",
+        "es": "Aliño incluido"
+      },
       "items": [
-        { "number": null, "name": "Pizza Salad", "description": "", "price": "1€" },
-        { "number": null, "name": "French Fries", "description": "", "price": "5€" },
-        { "number": null, "name": "Salsa", "description": "", "price": "1€" }
+        { "number": 39, "name": { "en": "Prawn Salad", "sv": "Räksallad", "es": "Ensalada de Gambas" }, "description": { "en": "Prawns & vegetables", "sv": "Räkor, grönsaker", "es": "Gambas y verduras" }, "price": "15€" },
+        { "number": 40, "name": { "en": "Tuna Salad", "sv": "Tonfisksallad", "es": "Ensalada de Atún" }, "description": { "en": "Tuna & vegetables", "sv": "Tonfisk, grönsaker", "es": "Atún y verduras" }, "price": "14€" },
+        { "number": 41, "name": { "en": "Kebab Salad", "sv": "Kebabsallad", "es": "Ensalada de Kebab" }, "description": { "en": "Gyros meat & vegetables", "sv": "Gyrosskött, grönsaker", "es": "Carne de gyros y verduras" }, "price": "14€" },
+        { "number": 42, "name": { "en": "Chicken Salad", "sv": "Kycklingsallad", "es": "Ensalada de Pollo" }, "description": { "en": "Chicken & vegetables", "sv": "Kyckling, grönsaker", "es": "Pollo y verduras" }, "price": "14€" }
+      ]
+    },
+    {
+      "category": "extra",
+      "categoryName": { "en": "Extra", "sv": "Extra", "es": "Extra" },
+      "items": [
+        { "number": null, "name": { "en": "Pizza Salad", "sv": "Pizzasallad", "es": "Ensalada para Pizza" }, "description": { "en": "", "sv": "", "es": "" }, "price": "1€" },
+        { "number": null, "name": { "en": "French Fries", "sv": "Pommes Frites", "es": "Patatas Fritas" }, "description": { "en": "", "sv": "", "es": "" }, "price": "5€" },
+        { "number": null, "name": { "en": "Sauce", "sv": "Sås", "es": "Salsa" }, "description": { "en": "", "sv": "", "es": "" }, "price": "1€" },
+        { "number": null, "name": { "en": "Gluten-Free Supplement", "sv": "Glutenfritt Kosttillskott", "es": "Suplemento Sin Gluten" }, "description": { "en": "", "sv": "", "es": "" }, "price": "3€" }
+      ]
+    },
+    {
+      "category": "drinks",
+      "categoryName": { "en": "Drinks", "sv": "Läsk", "es": "Bebidas" },
+      "items": [
+        { "number": 1, "name": { "en": "Coca Cola", "sv": "Coca Cola", "es": "Coca Cola" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "2€" },
+        { "number": 2, "name": { "en": "Coca Cola Zero", "sv": "Coca Cola Zero", "es": "Coca Cola Zero" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "2€" },
+        { "number": 3, "name": { "en": "Orange Fanta", "sv": "Fanta Apelsin", "es": "Fanta Naranja" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "2€" },
+        { "number": 4, "name": { "en": "Lemon Fanta", "sv": "Fanta Citron", "es": "Fanta Limón" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "2€" },
+        { "number": 5, "name": { "en": "Sprite", "sv": "Sprite", "es": "Sprite" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "2€" },
+        { "number": 6, "name": { "en": "Nestea", "sv": "Nestea", "es": "Nestea" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "2.5€" },
+        { "number": 7, "name": { "en": "Aquarius Lemon", "sv": "Aquarius Citron", "es": "Aquarius Limón" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "2.5€" },
+        { "number": 8, "name": { "en": "Tonic", "sv": "Tonic", "es": "Tónica" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "2€" },
+        { "number": 9, "name": { "en": "Water Valtore", "sv": "Vatten Valtore", "es": "Agua Valtore" }, "description": { "en": "50cl", "sv": "50cl", "es": "50cl" }, "price": "1.5€" },
+        { "number": 10, "name": { "en": "Water Valtore", "sv": "Vatten Valtore", "es": "Agua Valtore" }, "description": { "en": "1.5L", "sv": "1.5L", "es": "1.5L" }, "price": "2€" },
+        { "number": 11, "name": { "en": "Orange Juice", "sv": "Apelsinjuice", "es": "Zumo de Naranja" }, "description": { "en": "20cl", "sv": "20cl", "es": "20cl" }, "price": "3€" },
+        { "number": 12, "name": { "en": "Pineapple Juice", "sv": "Ananasjuice", "es": "Zumo de Piña" }, "description": { "en": "20cl", "sv": "20cl", "es": "20cl" }, "price": "3€" },
+        { "number": 13, "name": { "en": "Apple Juice", "sv": "Äppeljuice", "es": "Zumo de Manzana" }, "description": { "en": "20cl", "sv": "20cl", "es": "20cl" }, "price": "3€" },
+        { "number": 14, "name": { "en": "Sparkling Water", "sv": "Kolsyrat Vatten", "es": "Agua con Gas" }, "description": { "en": "", "sv": "", "es": "" }, "price": "2€" }
+      ]
+    },
+    {
+      "category": "wine",
+      "categoryName": { "en": "Wine", "sv": "Vin", "es": "Vino" },
+      "note": {
+        "en": "Glass / Bottle",
+        "sv": "Glas / Flaska",
+        "es": "Copa / Botella"
+      },
+      "items": [
+        { "number": 1, "name": { "en": "White Wine", "sv": "Vitt Vin", "es": "Vino Blanco" }, "description": { "en": "", "sv": "", "es": "" }, "priceGlass": "4€", "priceBottle": "11€" },
+        { "number": 2, "name": { "en": "Rosé Wine", "sv": "Rosé Vin", "es": "Vino Rosado" }, "description": { "en": "", "sv": "", "es": "" }, "priceGlass": "4€", "priceBottle": "11€" },
+        { "number": 3, "name": { "en": "Red Wine", "sv": "Rödvin", "es": "Vino Tinto" }, "description": { "en": "", "sv": "", "es": "" }, "priceGlass": "4€", "priceBottle": "11€" }
+      ]
+    },
+    {
+      "category": "draft-beer",
+      "categoryName": { "en": "Draft Beer", "sv": "Fatöl", "es": "Cerveza de Barril" },
+      "items": [
+        { "number": 1, "name": { "en": "Small", "sv": "Liten", "es": "Pequeña" }, "description": { "en": "", "sv": "", "es": "" }, "price": "2€" },
+        { "number": 2, "name": { "en": "Large", "sv": "Stor", "es": "Grande" }, "description": { "en": "", "sv": "", "es": "" }, "price": "4€" }
+      ]
+    },
+    {
+      "category": "bottled-beer",
+      "categoryName": { "en": "Bottled Beer", "sv": "Flasköl", "es": "Cerveza en Botella" },
+      "items": [
+        { "number": 1, "name": { "en": "Peroni", "sv": "Peroni", "es": "Peroni" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "4€" },
+        { "number": 2, "name": { "en": "San Miguel", "sv": "San Miguel", "es": "San Miguel" }, "description": { "en": "33cl", "sv": "33cl", "es": "33cl" }, "price": "4€" },
+        { "number": 3, "name": { "en": "La Sagra 0.0", "sv": "La Sagra 0.0", "es": "La Sagra 0.0" }, "description": { "en": "Alcohol-free", "sv": "Alkoholfri", "es": "Sin alcohol" }, "price": "2.5€" },
+        { "number": 4, "name": { "en": "Strongbow Cider", "sv": "Strongbow Cider", "es": "Sidra Strongbow" }, "description": { "en": "50cl", "sv": "50cl", "es": "50cl" }, "price": "4€" },
+        { "number": 5, "name": { "en": "Tinto de Verano", "sv": "Tinto de Verano", "es": "Tinto de Verano" }, "description": { "en": "", "sv": "", "es": "" }, "price": "4€" }
       ]
     }
   ],
 
-  "popularItemNumbers": [3, 20, 4, 35]
+  "popularItems": [
+    { "category": "pizza", "number": 3 },
+    { "category": "pizza", "number": 20 },
+    { "category": "pizza", "number": 4 },
+    { "category": "gyros-kebab", "number": 35 }
+  ]
 }

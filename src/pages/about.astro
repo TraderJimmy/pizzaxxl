@@ -1,17 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import restaurant from '../data/restaurant.json';
+import AboutContent from '../sections/AboutContent.astro';
 ---
 
-<BaseLayout title="About us" active="about">
-  <section class="section wrap">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>About Us</h2>
-        <p><strong>At PizzaXXL, we believe in big flavors, big portions, and big smiles.</strong></p>
-        <p>{restaurant.about}</p>
-      </div>
-      <img src="/images/restaurant-photo.jpg" alt="PizzaXXL restaurant" />
-    </div>
-  </section>
-</BaseLayout>
+<AboutContent lang="en" />

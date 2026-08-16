@@ -1,4 +1,7 @@
 ---
+import { t, type Lang } from '../i18n/ui';
+import restaurant from '../data/restaurant.json';
+
 interface Hours {
   monday: string;
   tuesday: string;
@@ -8,65 +11,134 @@ interface Hours {
   saturday: string;
   sunday: string;
 }
+interface DeliveryPlatform {
+  name: string;
+  url: string;
+}
+interface Closure {
+  from: string;
+  to: string;
+}
 interface Props {
+  lang: Lang;
   name: string;
   address: string;
   phone: string;
-  delivery: string;
+  facebook?: string;
+  delivery: DeliveryPlatform[];
   hours: Hours;
+  closures?: Closure[];
 }
-const { name, address, phone, delivery, hours }: Props = Astro.props;
+const { lang, name, address, phone, facebook, delivery, hours, closures = [] }: Props = Astro.props;
 
-const days: [keyof Hours, string][] = [
-  ['monday', 'Monday'],
-  ['tuesday', 'Tuesday'],
-  ['wednesday', 'Wednesday'],
-  ['thursday', 'Thursday'],
-  ['friday', 'Friday'],
-  ['saturday', 'Saturday'],
-  ['sunday', 'Sunday'],
+const instagram = restaurant.socials.find((s) => s.name === 'Instagram')?.url;
+
+const localeMap: Record<Lang, string> = { en: 'en-GB', sv: 'sv-SE', es: 'es-ES' };
+const dateFormatter = new Intl.DateTimeFormat(localeMap[lang], { day: 'numeric', month: 'short' });
+const upcomingClosures = closures.filter((c) => new Date(`${c.to}T23:59:59`) >= new Date());
+const formattedClosures = upcomingClosures.map((c) => {
+  const from = new Date(`${c.from}T00:00:00`);
+  const to = new Date(`${c.to}T00:00:00`);
+  return typeof (dateFormatter as any).formatRange === 'function'
+    ? (dateFormatter as any).formatRange(from, to)
+    : `${dateFormatter.format(from)} – ${dateFormatter.format(to)}`;
+});
+
+const days: [keyof Hours, Parameters<typeof t>[1]][] = [
+  ['monday', 'day.monday'],
+  ['tuesday', 'day.tuesday'],
+  ['wednesday', 'day.wednesday'],
+  ['thursday', 'day.thursday'],
+  ['friday', 'day.friday'],
+  ['saturday', 'day.saturday'],
+  ['sunday', 'day.sunday'],
 ];
 ---
 
-<div class="location-card" data-hours={JSON.stringify(hours)}>
+<div class="location-card" data-hours={JSON.stringify(hours)} data-closures={JSON.stringify(closures)} data-lang={lang}>
   <h3>{name}</h3>
   <span class="open-badge" data-open-badge>
     <span class="dot"></span>
     <span data-open-text>&hellip;</span>
   </span>
 
+  {formattedClosures.length > 0 && (
+    <p class="closure-notice">
+      ⚠️ {t(lang, 'locationCard.closureNotice')}: {formattedClosures.join(', ')}
+    </p>
+  )}
+
   <div class="location-detail">
-    <div class="location-detail-label">Address</div>
+    <div class="location-detail-label">{t(lang, 'locationCard.address')}</div>
     <div>{address}</div>
   </div>
 
   <div class="location-detail">
-    <div class="location-detail-label">Phone</div>
+    <div class="location-detail-label">{t(lang, 'locationCard.phone')}</div>
     <div><a href={`tel:${phone.replace(/\s+/g, '')}`}>{phone}</a></div>
   </div>
 
   <div class="location-detail">
-    <div class="location-detail-label">Home delivery</div>
-    <div>{delivery}</div>
+    <div class="location-detail-label">{t(lang, 'locationCard.delivery')}</div>
+    <div class="delivery-badges">
+      {delivery.map((platform) => (
+        <a href={platform.url} target="_blank" rel="noopener noreferrer" class="delivery-badge" aria-label={`${t(lang, 'locationCard.orderOn')} ${platform.name}`}>
+          {platform.name === 'Uber Eats'
+            ? <img src="/images/uber-eats-badge.jpg" alt="Uber Eats" />
+            : platform.name}
+        </a>
+      ))}
+    </div>
   </div>
 
+  {(facebook || instagram) && (
+    <div class="location-detail">
+      <div class="location-detail-label">{t(lang, 'locationCard.followUs')}</div>
+      <div class="social-badges">
+        {facebook && (
+          <a href={facebook} target="_blank" rel="noopener noreferrer" class="social-badge" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H7.9V12h2.6V9.8c0-2.6 1.5-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+        )}
+        {instagram && (
+          <a href={instagram} target="_blank" rel="noopener noreferrer" class="social-badge" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+          </a>
+        )}
+      </div>
+    </div>
+  )}
+
   <table class="hours-table" data-hours-table>
-    {days.map(([key, label]) => (
+    {days.map(([key, labelKey]) => (
       <tr data-day={key}>
-        <td>{label}</td>
-        <td>{hours[key] === 'closed' ? 'Closed' : hours[key]}</td>
+        <td>{t(lang, labelKey)}</td>
+        <td>{hours[key] === 'closed' ? t(lang, 'locationCard.closed') : hours[key]}</td>
       </tr>
     ))}
   </table>
+
+  <div class="location-map">
+    <iframe
+      src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title={`Map to PizzaXXL ${name}`}
+    ></iframe>
+  </div>
 </div>
 
 <script>
   function initLocationCards() {
     const cards = document.querySelectorAll<HTMLElement>('.location-card[data-hours]');
     const dayKeys = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const openText: Record<string, string> = { en: 'Open now', sv: 'Öppet nu', es: 'Abierto ahora' };
+    const closedText: Record<string, string> = { en: 'Closed now', sv: 'Stängt nu', es: 'Cerrado ahora' };
 
     cards.forEach((card) => {
       const hours = JSON.parse(card.dataset.hours ?? '{}');
+      const closures: { from: string; to: string }[] = JSON.parse(card.dataset.closures ?? '[]');
+      const lang = card.dataset.lang ?? 'en';
       const now = new Date();
       const todayKey = dayKeys[now.getDay()];
       const todayRange = hours[todayKey];
@@ -78,8 +150,11 @@ const days: [keyof Hours, string][] = [
       const text = card.querySelector<HTMLElement>('[data-open-text]');
       if (!badge || !text) return;
 
+      const todayStr = now.toISOString().slice(0, 10);
+      const isSpecialClosure = closures.some((c) => todayStr >= c.from && todayStr <= c.to);
+
       let isOpen = false;
-      if (todayRange && todayRange !== 'closed') {
+      if (!isSpecialClosure && todayRange && todayRange !== 'closed') {
         const [start, end] = todayRange.split('-');
         const [startH, startM] = start.split(':').map(Number);
         const [endH, endM] = end.split(':').map(Number);
@@ -90,7 +165,7 @@ const days: [keyof Hours, string][] = [
       }
 
       badge.classList.add(isOpen ? 'is-open' : 'is-closed');
-      text.textContent = isOpen ? 'Open now' : 'Closed now';
+      text.textContent = isOpen ? (openText[lang] ?? openText.en) : (closedText[lang] ?? closedText.en);
     });
   }
 

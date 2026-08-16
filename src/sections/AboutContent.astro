@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import restaurant from '../data/restaurant.json';
+import { t, type Lang } from '../i18n/ui';
+import aboutImage from '../images/about-photo.jpg';
+
+interface Props {
+  lang: Lang;
+}
+const { lang }: Props = Astro.props;
+---
+
+<BaseLayout lang={lang} title={t(lang, 'nav.about')} active="about" page="about/">
+  <section class="section wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>{t(lang, 'about.title')}</h2>
+        <p><strong>{t(lang, 'about.lead')}</strong></p>
+        <p>{restaurant.about[lang]}</p>
+      </div>
+      <Image src={aboutImage} alt="Handmade pizza dough being prepared at PizzaXXL" width={700} quality={75} />
+    </div>
+  </section>
+</BaseLayout>

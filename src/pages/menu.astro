@@ -1,32 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import restaurant from '../data/restaurant.json';
+import MenuContent from '../sections/MenuContent.astro';
 ---
 
-<BaseLayout title="Menu" active="menu">
-  <section class="section wrap">
-    <div class="section-title">
-      <h2>Menu</h2>
-    </div>
-
-    {restaurant.menu.map((category) => (
-      <div class="menu-category">
-        <h2>{category.category}</h2>
-        <div class="menu-items">
-          {category.items.map((item) => (
-            <div class="menu-item">
-              <div>
-                <div class="menu-item-name">
-                  {item.number && <span class="menu-item-number">{item.number}.</span>}
-                  {item.name.toUpperCase()}
-                </div>
-                {item.description && <div class="menu-item-desc">{item.description}</div>}
-              </div>
-              <div class="menu-item-price">{item.price}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    ))}
-  </section>
-</BaseLayout>
+<MenuContent lang="en" />
