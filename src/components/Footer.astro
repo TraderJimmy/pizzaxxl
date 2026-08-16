@@ -1,0 +1,19 @@
+---
+import restaurant from '../data/restaurant.json';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h4>PizzaXXL</h4>
+      <p>&copy; {year} PizzaXXL. Swedish pizza in Torrevieja, Spain.</p>
+    </div>
+    {restaurant.locations.map((location) => (
+      <div>
+        <h4>{location.name}</h4>
+        <p>{location.address}<br />{location.phone}</p>
+      </div>
+    ))}
+  </div>
+</footer>

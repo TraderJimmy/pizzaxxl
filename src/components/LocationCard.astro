@@ -1,0 +1,99 @@
+---
+interface Hours {
+  monday: string;
+  tuesday: string;
+  wednesday: string;
+  thursday: string;
+  friday: string;
+  saturday: string;
+  sunday: string;
+}
+interface Props {
+  name: string;
+  address: string;
+  phone: string;
+  delivery: string;
+  hours: Hours;
+}
+const { name, address, phone, delivery, hours }: Props = Astro.props;
+
+const days: [keyof Hours, string][] = [
+  ['monday', 'Monday'],
+  ['tuesday', 'Tuesday'],
+  ['wednesday', 'Wednesday'],
+  ['thursday', 'Thursday'],
+  ['friday', 'Friday'],
+  ['saturday', 'Saturday'],
+  ['sunday', 'Sunday'],
+];
+---
+
+<div class="location-card" data-hours={JSON.stringify(hours)}>
+  <h3>{name}</h3>
+  <span class="open-badge" data-open-badge>
+    <span class="dot"></span>
+    <span data-open-text>&hellip;</span>
+  </span>
+
+  <div class="location-detail">
+    <div class="location-detail-label">Address</div>
+    <div>{address}</div>
+  </div>
+
+  <div class="location-detail">
+    <div class="location-detail-label">Phone</div>
+    <div><a href={`tel:${phone.replace(/\s+/g, '')}`}>{phone}</a></div>
+  </div>
+
+  <div class="location-detail">
+    <div class="location-detail-label">Home delivery</div>
+    <div>{delivery}</div>
+  </div>
+
+  <table class="hours-table" data-hours-table>
+    {days.map(([key, label]) => (
+      <tr data-day={key}>
+        <td>{label}</td>
+        <td>{hours[key] === 'closed' ? 'Closed' : hours[key]}</td>
+      </tr>
+    ))}
+  </table>
+</div>
+
+<script>
+  function initLocationCards() {
+    const cards = document.querySelectorAll<HTMLElement>('.location-card[data-hours]');
+    const dayKeys = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+    cards.forEach((card) => {
+      const hours = JSON.parse(card.dataset.hours ?? '{}');
+      const now = new Date();
+      const todayKey = dayKeys[now.getDay()];
+      const todayRange = hours[todayKey];
+
+      const row = card.querySelector<HTMLElement>(`[data-day="${todayKey}"]`);
+      if (row) row.classList.add('is-today');
+
+      const badge = card.querySelector<HTMLElement>('[data-open-badge]');
+      const text = card.querySelector<HTMLElement>('[data-open-text]');
+      if (!badge || !text) return;
+
+      let isOpen = false;
+      if (todayRange && todayRange !== 'closed') {
+        const [start, end] = todayRange.split('-');
+        const [startH, startM] = start.split(':').map(Number);
+        const [endH, endM] = end.split(':').map(Number);
+        const minutesNow = now.getHours() * 60 + now.getMinutes();
+        const minutesStart = startH * 60 + startM;
+        const minutesEnd = endH * 60 + endM;
+        isOpen = minutesNow >= minutesStart && minutesNow < minutesEnd;
+      }
+
+      badge.classList.add(isOpen ? 'is-open' : 'is-closed');
+      text.textContent = isOpen ? 'Open now' : 'Closed now';
+    });
+  }
+
+  initLocationCards();
+  document.addEventListener('astro:page-load', initLocationCards);
+</script>

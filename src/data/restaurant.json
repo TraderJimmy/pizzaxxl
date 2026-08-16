@@ -1,0 +1,103 @@
+{
+  "name": "PizzaXXL",
+  "tagline": "Swedish Pizza in Torrevieja",
+  "intro": "Welcome to an authentic Swedish pizzeria in Torrevieja, Spain. Made with the best ingredients brought from Sweden, to guarantee the authentic flavor of Swedish pizza.",
+  "about": "Welcome to PizzaXXL, where Swedish pizza meets the sunny coast of Spain! Located in beautiful Torrevieja, we have two restaurants dedicated to serving delicious, high-quality pizzas with a Swedish twist.\n\nOur passion for great food is what drives us. We use fresh ingredients, handmade dough, and a perfect balance of flavors to bring you pizzas that are both satisfying and unique. Whether you're dining in, grabbing takeaway, or just craving a slice of home, PizzaXXL is the place to be.\n\nJoin us for a taste of Sweden right here in Spain - because good pizza should always be XXL!",
+
+  "locations": [
+    {
+      "name": "Cabo Roig",
+      "address": "Calle Cieolo 8, the strip, Cabo Roig, Torrevieja, Spain",
+      "phone": "744 62 43 05",
+      "delivery": "Uber Eats",
+      "hours": {
+        "monday": "17:00-23:00",
+        "tuesday": "17:00-23:00",
+        "wednesday": "17:00-23:00",
+        "thursday": "17:00-23:00",
+        "friday": "17:00-23:00",
+        "saturday": "17:00-23:00",
+        "sunday": "17:00-23:00"
+      }
+    },
+    {
+      "name": "La Mata",
+      "address": "Avenida de suiza 44, La Mata, Spain",
+      "phone": "604 41 24 59",
+      "delivery": "Glovo or Uber Eats",
+      "hours": {
+        "monday": "18:00-23:00",
+        "tuesday": "18:00-23:00",
+        "wednesday": "18:00-23:00",
+        "thursday": "18:00-23:00",
+        "friday": "18:00-23:00",
+        "saturday": "18:00-23:00",
+        "sunday": "18:00-23:00"
+      }
+    }
+  ],
+
+  "menu": [
+    {
+      "category": "Pizza",
+      "items": [
+        { "number": 1, "name": "Margarita", "description": "Cheese", "price": "Normal 11€ | XXL 16€" },
+        { "number": 2, "name": "Vesuvio", "description": "Ham", "price": "Normal 12€ | XXL 19€" },
+        { "number": 3, "name": "Hawaii", "description": "Ham & Pineapple", "price": "Normal 13€ | XXL 20€" },
+        { "number": 4, "name": "Capricciosa", "description": "Ham & Mushrooms", "price": "Normal 13€ | XXL 20€" },
+        { "number": 5, "name": "Funghi", "description": "Mushrooms", "price": "Normal 12€ | XXL 19€" },
+        { "number": 6, "name": "Orientale", "description": "Ham, minced meat & onion", "price": "Normal 14€ | XXL 20€" },
+        { "number": 7, "name": "Mexicana", "description": "Minced meat, peppers, onion, garlic & cayenne pepper", "price": "Normal 14€ | XXL 20€" },
+        { "number": 8, "name": "Primavera", "description": "Ham, prawns & pineapple", "price": "Normal 15€ | XXL 21€" },
+        { "number": 9, "name": "Vegetariana", "description": "Mushrooms, peppers, onion, olives & artichoke", "price": "Normal 13€ | XXL 19€" },
+        { "number": 10, "name": "Venezia", "description": "Ham & tuna", "price": "Normal 13€ | XXL 20€" },
+        { "number": 11, "name": "Peperoni", "description": "Peperoni, mushrooms & onion", "price": "Normal 13€ | XXL 20€" },
+        { "number": 12, "name": "Calzone", "description": "Ham", "price": "13€" },
+        { "number": 13, "name": "John Blund", "description": "Onion, mushrooms, bacon, egg & ham", "price": "Normal 16€ | XXL 22€" },
+        { "number": 14, "name": "Africana", "description": "Pineapple, chicken, curry, banana", "price": "Normal 15€ | XXL 22€" },
+        { "number": 15, "name": "Monaco", "description": "Ham, prawns, bacon & bearnaise", "price": "Normal 16€ | XXL 23€" },
+        { "number": 16, "name": "Jamaica", "description": "Ham, prawns & mushrooms", "price": "Normal 15€ | XXL 21€" },
+        { "number": 17, "name": "Calzone Special", "description": "Ham & prawns", "price": "15€" },
+        { "number": 18, "name": "Marinara", "description": "Prawns & mussels", "price": "Normal 15€ | XXL 21€" },
+        { "number": 19, "name": "Quattro Stagione", "description": "Ham, prawns, mushrooms, artichoke & mussels", "price": "Normal 18€ | XXL 23€" },
+        { "number": 20, "name": "Gyros Pizza", "description": "Gyros meat & sauce", "price": "Normal 17€ | XXL 22€" },
+        { "number": 21, "name": "Gyros Special", "description": "Gyros meat, salad, tomatoes & cucumber", "price": "Normal 18€ | XXL 25€" },
+        { "number": 22, "name": "Frutti di Mare", "description": "Prawns, pineapple, garlic, piri piri, curry & aioli", "price": "Normal 16€ | XXL 23€" },
+        { "number": 23, "name": "Fillet of Beef", "description": "Beef, onion, garlic, bearnaise & tomatoes", "price": "Normal 16€ | XXL 23€" },
+        { "number": 24, "name": "Kebab Pizza", "description": "Kebab meat & sauce", "price": "Normal 17€ | XXL 22€" },
+        { "number": 25, "name": "Special Kebab Pizza", "description": "Kebab meat, lettuce, tomatoes, onion, chilli pepper & sauce", "price": "Normal 18€ | XXL 25€" }
+      ]
+    },
+    {
+      "category": "Gyros",
+      "items": [
+        { "number": 30, "name": "Gyros in a Roll", "description": "Gyros meat & vegetables", "price": "15€" },
+        { "number": 31, "name": "Gyros on a Plate", "description": "Gyros meat, vegetables & french fries", "price": "15€" },
+        { "number": 32, "name": "Falafel Plate", "description": "Falafel, vegetables, french fries", "price": "12€" },
+        { "number": 33, "name": "Falafel Roll", "description": "Falafel, vegetables", "price": "12€" },
+        { "number": 34, "name": "Kids Menu", "description": "Nuggets & fries", "price": "7€" },
+        { "number": 35, "name": "Kebab on a Roll", "description": "Kebab meat & vegetables", "price": "15€" },
+        { "number": 36, "name": "Kebab on a Plate", "description": "Kebab meat, vegetables & french fries", "price": "15€" }
+      ]
+    },
+    {
+      "category": "Salad",
+      "items": [
+        { "number": 39, "name": "Prawn Salad", "description": "Prawns & vegetables", "price": "15€" },
+        { "number": 40, "name": "Tuna Salad", "description": "Tuna & vegetables", "price": "14€" },
+        { "number": 41, "name": "Kebab Salad", "description": "Gyros meat & vegetables", "price": "14€" },
+        { "number": 42, "name": "Chicken Salad", "description": "Chicken & vegetables", "price": "14€" }
+      ]
+    },
+    {
+      "category": "Extra",
+      "items": [
+        { "number": null, "name": "Pizza Salad", "description": "", "price": "1€" },
+        { "number": null, "name": "French Fries", "description": "", "price": "5€" },
+        { "number": null, "name": "Salsa", "description": "", "price": "1€" }
+      ]
+    }
+  ],
+
+  "popularItemNumbers": [3, 20, 4, 35]
+}

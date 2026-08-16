@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LocationCard from '../components/LocationCard.astro';
+import restaurant from '../data/restaurant.json';
+---
+
+<BaseLayout title="Location & Hours" active="location">
+  <section class="section wrap">
+    <div class="section-title">
+      <h2>Location & Hours</h2>
+      <p>We are located in two different locations in the Torrevieja area</p>
+    </div>
+    <div class="locations-grid">
+      {restaurant.locations.map((location) => (
+        <LocationCard {...location} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
