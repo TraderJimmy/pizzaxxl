@@ -24,12 +24,13 @@ interface Props {
   name: string;
   address: string;
   phone: string;
+  googleMapsUrl?: string;
   facebook?: string;
   delivery: DeliveryPlatform[];
   hours: Hours;
   closures?: Closure[];
 }
-const { lang, name, address, phone, facebook, delivery, hours, closures = [] }: Props = Astro.props;
+const { lang, name, address, phone, googleMapsUrl, facebook, delivery, hours, closures = [] }: Props = Astro.props;
 
 const instagram = restaurant.socials.find((s) => s.name === 'Instagram')?.url;
 
@@ -118,14 +119,22 @@ const days: [keyof Hours, Parameters<typeof t>[1]][] = [
     ))}
   </table>
 
-  <div class="location-map">
+  <a
+    class="location-map"
+    href={googleMapsUrl ?? `https://www.google.com/maps?q=${encodeURIComponent(address)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`${t(lang, 'locationCard.openInMaps')} – ${name}`}
+  >
     <iframe
       src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
       title={`Map to PizzaXXL ${name}`}
+      tabindex="-1"
     ></iframe>
-  </div>
+    <span class="location-map-badge">{t(lang, 'locationCard.openInMaps')} ↗</span>
+  </a>
 </div>
 
 <script>

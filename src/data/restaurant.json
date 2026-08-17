@@ -25,6 +25,7 @@
       "name": "Cabo Roig",
       "address": "Calle Cieolo 8, the strip, Cabo Roig, Torrevieja, Spain",
       "phone": "744 62 43 05",
+      "googleMapsUrl": "https://maps.app.goo.gl/R9j9Uoz6xUaycRAKA",
       "facebook": "https://www.facebook.com/XXLPizza",
       "delivery": [
         { "name": "Uber Eats", "url": "https://www.ubereats.com/es/store/pizza-xxl-cabo-roig/mVoMQvGTV9S01nVvJG5l-g?diningMode=DELIVERY" }
@@ -43,6 +44,7 @@
       "name": "La Mata",
       "address": "Avenida de suiza 44, La Mata, Spain",
       "phone": "604 41 24 59",
+      "googleMapsUrl": "https://maps.app.goo.gl/UYJmMKe539BphGAN9",
       "facebook": "https://www.facebook.com/profile.php?id=61574603855852",
       "delivery": [
         { "name": "Uber Eats", "url": "https://www.ubereats.com/es/store/pizza-xxl-la-mata/PjArtCKBXoi_vnKEyWTigw" }
